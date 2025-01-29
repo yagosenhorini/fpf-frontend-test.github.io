@@ -16,7 +16,7 @@
     },
     "birthday": "22/01/1973",
     "status": "Inativo",
-    "image": "img/rogerio.jpeg"
+    "image": "public/img/rogerio.jpeg"
   },
   {
     "id": 2,
@@ -35,6 +35,6 @@
     },
     "birthday": "04/08/1973",
     "status": "Ativo",
-    "image": "img/marcos.jpeg"
+    "image": "public/img/marcos.jpeg"
   }
 ]
