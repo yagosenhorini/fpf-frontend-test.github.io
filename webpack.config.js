@@ -74,7 +74,7 @@ module.exports = {
   },
   devServer: {
     static: {
-      directory: path.resolve(__dirname, 'public'), // Serve arquivos estáticos
+      directory: path.resolve(__dirname, 'dist'), // Serve arquivos estáticos
     },
     port: 3000, // Porta do servidor
     hot: true, // Habilita Hot Module Replacement
