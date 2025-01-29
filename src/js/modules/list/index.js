@@ -16,7 +16,7 @@ export const mountUserList = () => {
   };
 
   showLoading();
-  return fetch('/mock/data.json')
+  return fetch('public/mock/data.json')
     .then((res) => res.json())
     .then((users) => {
       hideLoading();
