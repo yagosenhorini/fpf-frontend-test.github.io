@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development', // Defina "production" para produção
@@ -23,6 +24,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'index.html'), // Seu arquivo HTML de entrada
       filename: 'index.html', // Nome do arquivo HTML gerado
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'public', to: 'public' }, // Copia a pasta public para dist/public
+      ],
     }),
   ],
   module: {
