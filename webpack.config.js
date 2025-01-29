@@ -4,30 +4,28 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  mode: 'development', // Defina "production" para produção
-  devtool: 'source-map', // Habilitar source maps para depuração
+  mode: 'production',
   entry: {
     home: [
       path.resolve(__dirname, 'src/scss/main.scss'),
-      path.resolve(__dirname, 'src/js/index.js') // Certifique-se de que este é o arquivo JS principal
-    ]
+      path.resolve(__dirname, 'src/js/index.js')]
   },
   output: {
-    filename: 'src/js/index.js', // Saída do JS
+    filename: 'src/js/index.js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true, // Limpa a pasta "dist" a cada build
+    clean: true,
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/main.css', // Saída do CSS
+      filename: 'css/main.css',
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'index.html'), // Seu arquivo HTML de entrada
-      filename: 'index.html', // Nome do arquivo HTML gerado
+      template: path.resolve(__dirname, 'index.html'),
+      filename: 'index.html',
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'public', to: 'public' }, // Copia a pasta public para dist/public
+        {from: 'public', to: 'public'},
       ],
     }),
   ],
@@ -36,48 +34,48 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: 'babel-loader', // Transpila JS usando Babel
+        use: 'babel-loader',
       },
       {
         test: /\.json$/,
-        type: 'json', // Webpack 5 já tem suporte nativo a JSON
+        type: 'json',
       },
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader, // Extrai o CSS em arquivos separados
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true, // Habilita source maps
+              sourceMap: true,
             },
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true, // Habilita source maps
+              sourceMap: true,
             },
           },
         ],
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg)$/i, // Carrega imagens
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'img/[name][ext]', // Salva as imagens dentro de /dist/img
+          filename: 'img/[name][ext]',
         },
       },
     ],
   },
   resolve: {
-    extensions: ['.js', '.scss', '.json'], // Adiciona suporte para SCSS
+    extensions: ['.js', '.scss', '.json'],
   },
   devServer: {
     static: {
-      directory: path.resolve(__dirname, 'dist'), // Serve arquivos estáticos
+      directory: path.resolve(__dirname, 'dist'),
     },
-    port: 3000, // Porta do servidor
-    hot: true, // Habilita Hot Module Replacement
-    open: true, // Abre o navegador automaticamente
+    port: 3000,
+    hot: true,
+    open: true,
   },
 };
