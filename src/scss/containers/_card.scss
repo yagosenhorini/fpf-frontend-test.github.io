@@ -1,0 +1,111 @@
+@use '../utils/variables' as *;
+@use '../utils/helpers' as *;
+@use '../utils/typography' as *;
+
+.x-card {
+  position: relative;
+  width: 100%;
+  max-height: 180px;
+  margin: 30px auto;
+  @media screen and (min-width: 1200px) {
+    width: 60%;
+    max-height: 210px;
+  }
+  border: 1px solid $text-default-color;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  background-color: $primary-color;
+  overflow: hidden;
+  @include flex-row;
+  transition: max-height 300ms ease-in-out;
+  &.is--expanded {
+    max-height: 400px;
+  }
+
+  &-profile {
+    width: 40%;
+    @media screen and (min-width: 1200px) {
+      width: 30%;
+    }
+    @include flex-column-center;
+    border-right: 1px solid $text-default-color;
+    padding: 10px;
+
+    &__image {
+      width: 110px;
+      height: 110px;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      @media screen and (min-width: 1200px) {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 20px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__status, &__name {
+      display: block;
+      color: $text-black;
+      background-color: $main-gray-color;
+      width: 90px;
+      height: 30px;
+      border-radius: 5px;
+      font-size: $font-xs;
+      font-weight: 600;
+      @media screen and (min-width: 1200px) {
+        width: 120px;
+      }
+      @include flex-center;
+    }
+
+  }
+  &-info {
+    width: 60%;
+    @media screen and (min-width: 1200px) {
+      width: 70%;
+    }
+    padding: 10px 20px;
+    @include flex-column;
+    gap: 3px;
+    &__name,
+    &__age,
+    &__email,
+    &__phone, &__document, &__email, &__birth {
+      font-size: $font-xs;
+      color: $secondary-color;
+    }
+    &__more-details {
+      background-color: $main-gray-color;
+      color: $text-black;
+      height: 30px;
+      width: 90px;
+      border: none;
+      border-radius: 5px;
+      @include flex-center;
+      margin: 10px auto;
+      cursor: pointer;
+      font-weight: 600;
+      @media screen and (min-width: 1200px) {
+        width: 120px;
+      }
+    }
+  }
+  &-address {
+    &-title {
+      font-size: $font-sm;
+      color: $text-default-color;
+    }
+    &__street,
+    &__number,
+    &__city,
+    &__state, &__zip, &__district, {
+      font-size: $font-xs;
+      color: $secondary-color;
+    }
+  }
+}

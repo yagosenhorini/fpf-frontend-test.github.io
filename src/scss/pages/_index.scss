@@ -1,0 +1,9 @@
+@use '../utils/variables' as *;
+@use '../utils/helpers' as *;
+@use '../utils/typography' as *;
+
+.x-users-section {
+  padding: 10px;
+  height: 100%;
+  margin-bottom: 60px;
+}

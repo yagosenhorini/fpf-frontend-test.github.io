@@ -1,0 +1,12 @@
+@use '../utils/variables' as *;
+@use '../utils/helpers' as *;
+
+.x-footer {
+  width: 100%;
+  height: 60px;
+  background-color: $primary-color;
+  color: $text-default-color;
+  @include flex-center;
+  position: fixed;
+  bottom: 0;
+}
