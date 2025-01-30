@@ -1,9 +1,45 @@
 @use '../utils/variables' as *;
-@use '../utils/helpers' as *;
+@use '../utils/mixins' as *;
 @use '../utils/typography' as *;
 
 .x-users-section {
+  width: 100%;
   padding: 10px;
   height: 100%;
   margin-bottom: 60px;
+
+  &-header {
+    @include flex-row;
+    justify-content: space-between;
+    @media screen and (min-width: 1200px) {
+      justify-content: flex-start;
+      gap: 20px;
+    }
+
+    &__title {
+
+    }
+
+    &__button {
+      cursor: pointer;
+      background-color: $primary-color;
+      color: $text-default-color;
+      font-weight: 600;
+      border-radius: 5px;
+      @include flex-center;
+      width: 140px;
+      border: none;
+      font-size: $font-sm;
+    }
+  }
+
+  &__content {
+    margin-top: 20px;
+    @include flex-column-center;
+    @media screen and (min-width: 1200px) {
+      display: grid;
+      row-gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 }

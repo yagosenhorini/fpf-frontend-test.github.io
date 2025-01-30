@@ -5,7 +5,7 @@
     "age": 52,
     "documentNumber": "123.456.789-09",
     "email": "rogerio@gmail.com",
-    "phoneNumber": "+55 11 94848-4747",
+    "phoneNumber": "+55 (11) 94848-4747",
     "address": {
       "street": "Avenida Morumbi",
       "number": "321",
@@ -24,7 +24,7 @@
     "age": 51,
     "documentNumber": "321.456.789-09",
     "email": "marcos@gmail.com",
-    "phoneNumber": "+55 11 94848-3232",
+    "phoneNumber": "+55 (11) 94848-3232",
     "address": {
       "street": "Avenida Palestra Itália",
       "number": "123",

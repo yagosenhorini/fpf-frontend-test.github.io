@@ -1,0 +1,113 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+@use '../utils/typography' as *;
+
+.x-modal {
+  position: fixed;
+  transform: translateX(0%);
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease-in-out;
+  @include flex-column-center;
+  background-color: rgba($text-black, 0.8);
+  z-index: 9;
+
+  &-header {
+    margin: 10px auto;
+    @include flex-center;
+    color: $text-default-color;
+  }
+
+  &-content {
+    width: 90%;
+    height: 90%;
+
+    @media screen and (min-width: 1200px) {
+      width: 60%;
+      height: 60%;
+      overflow: hidden;
+    }
+    overflow: scroll;
+    margin: auto;
+    background-color: $primary-color;
+    border-radius: 15px;
+  }
+
+  &.is--hide {
+    transform: translateX(-100%);
+  }
+}
+
+.x-form {
+  width: 80%;
+  margin: auto;
+  gap: 10px;
+  @include flex-column;
+  color: $text-default-color;
+  @media screen and (min-width: 1200px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+  }
+
+  &-personal {
+    @include flex-column;
+    gap: 10px;
+  }
+
+  &-group {
+    &-gender {
+      &-options {
+        gap: 10px;
+        @include flex-row;
+        align-items: center;
+
+        label {
+          @include flex-center;
+          gap: 5px;
+        }
+      }
+    }
+  }
+
+  &-address, &-group {
+    gap: 10px;
+    @include flex-column;
+
+    input {
+      &:not([type="file"]) {
+        padding: 5px;
+        height: 20px;
+        border: none;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  &-submit {
+    &-wrapper {
+      margin-bottom: 10px;
+      @include flex-center;
+      gap: 10px;
+      @media screen and (min-width: 1200px) {
+        @include flex-row;
+        margin-top: 30px;
+        justify-content: flex-start;
+      }
+
+      &__btn {
+        font-weight: 500;
+        color: $text-default-color;
+        background-color: $secondary-color;
+        font-size: $font-md;
+        height: 30px;
+        border: none;
+        border-radius: 5px;
+        width: 100px;
+      }
+    }
+  }
+}

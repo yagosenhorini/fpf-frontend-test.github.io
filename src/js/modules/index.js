@@ -1,14 +1,15 @@
 import {toggleMenu} from "./menu";
 import {expandList, mountUserList} from "./list";
+import {appendNewCard, setMasksOnInput, toggleModal} from "./modal";
 
 const Methods = {
   init() {
     toggleMenu();
-    // createUser();
+    toggleModal();
     mountUserList();
-    setTimeout(() => {
-      expandList();
-    }, 300);
+    setMasksOnInput();
+    appendNewCard();
+    expandList();
   }
 }
 

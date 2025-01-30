@@ -1,5 +1,5 @@
 @use '../utils/variables' as *;
-@use '../utils/helpers' as *;
+@use '../utils/mixins' as *;
 
 .x-footer {
   width: 100%;
